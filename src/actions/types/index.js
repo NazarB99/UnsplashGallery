@@ -1,0 +1,3 @@
+export const SET_PHOTOS = 'SET_PHOTOS'
+export const START_LOADING = 'START_LOADING'
+export const REQUEST_FAILURE = 'REQUEST_FAILURE'
