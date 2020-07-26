@@ -13,6 +13,12 @@ const MainScreen = (props) => {
         props.getPhotos(page)
     }, [page])
 
+    useEffect(() => {
+        if(props.errors && props.errors.length){
+            alert(props.errors[0])
+        }
+    },[props.errors])
+
     const navigateToPhoto = (item) => {
         props.navigation.dispatch(
             CommonActions.navigate({
@@ -29,7 +35,7 @@ const MainScreen = (props) => {
                 <FlatList
                     data={props.photos}
                     numColumns={2}
-                    keyExtractor={item => item.id}
+                    keyExtractor={(item, index) => index+""}
                     renderItem={({item, index}) => <PhotoItem navigateToPhoto={navigateToPhoto} item={item}/>}
                     onEndReached={() => setPage(page + 1)}
                     onEndReachedThreshold={0.1}
@@ -43,7 +49,8 @@ const MainScreen = (props) => {
 
 const mapStateToProps = state => ({
     photos: state.photos.photos,
-    loading: state.photos.loading
+    loading: state.photos.loading,
+    errors: state.photos.errors
 })
 
 export default connect(mapStateToProps, {
