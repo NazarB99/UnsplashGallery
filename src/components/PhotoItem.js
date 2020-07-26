@@ -7,7 +7,7 @@ const PhotoItem = (props) => {
     return (
         <TouchableOpacity onPress={() => props.navigateToPhoto(props.item)}>
             <ImageBackground
-                source={{uri: props.item.urls.regular}}
+                source={{uri: props.item.urls.thumb}}
                 style={styles.imageContainer}
                 resizeMode="cover"
                 resizeMethod="scale"

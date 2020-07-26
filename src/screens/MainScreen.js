@@ -34,7 +34,7 @@ const MainScreen = (props) => {
                     onEndReached={() => setPage(page + 1)}
                     onEndReachedThreshold={0.1}
                     ListFooterComponent={() => {
-                        return props.loading ? <ActivityIndicator size="large"/> : <View/>
+                        return props.loading ? <ActivityIndicator color="black" size="large"/> : <View/>
                     }}
                 />
         </View>
